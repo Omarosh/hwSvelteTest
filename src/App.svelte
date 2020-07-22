@@ -1,6 +1,11 @@
 <script>
   import HT from "./HT.svelte";
   import Timer from "./timer.svelte";
+  let audio;
+
+  function timerEnds(e) {
+    console.log(e);
+  }
 </script>
 
 <style>
@@ -15,6 +20,10 @@
 </head>
 <h1>Test</h1>
 
-<Timer />
+<Timer on:end={timerEnds} />
 <HT />
 <h3>picture source</h3>
+
+<audio bind:this={audio}>
+  <source src="ballon.mp3" />
+</audio>
